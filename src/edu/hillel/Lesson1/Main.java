@@ -1,4 +1,4 @@
-package Lesson1;
+package edu.hillel.Lesson1;
 
 public class Main {
     public static void main(String[] args) {
