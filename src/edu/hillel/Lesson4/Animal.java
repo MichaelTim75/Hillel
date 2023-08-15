@@ -13,7 +13,7 @@ public class Animal {
         this.name=name;
     }
 
-    public void Run(int block){
+    public void run(int block){
         if (block<= runThreshold) {
             System.out.println(this+" run "+block);
         }
@@ -21,7 +21,7 @@ public class Animal {
             System.out.println(this+" can't run "+block);
         }
     }
-    public void Swim(int block){
+    public void swim(int block){
         if (block<= swimThreshold) {
             System.out.println(this+" swim "+block);
         }

@@ -6,20 +6,20 @@ public class Main {
     public static void main(String[] args) {
         Counter counter=new Counter();
         Dog dogBobik=new Dog(counter,"Бобик");
-        dogBobik.Run(10);
-        dogBobik.Swim(150);
+        dogBobik.run(10);
+        dogBobik.swim(150);
 
         Dog dogBarbos=new Dog(counter,"Барбос");
-        dogBarbos.Run(250);
-        dogBarbos.Swim(10);
+        dogBarbos.run(250);
+        dogBarbos.swim(10);
 
         Cat catZhuzha=new Cat(counter,"Жужа");
-        catZhuzha.Run(10);
-        catZhuzha.Swim(10);
+        catZhuzha.run(10);
+        catZhuzha.swim(10);
 
         Cat catMurka=new Cat(counter,"Мурка");
-        catMurka.Run(250);
-        catMurka.Swim(150);
+        catMurka.run(250);
+        catMurka.swim(150);
 
         System.out.println("Animals count="+counter.getAnimalsCount());
         System.out.println("Dogs count="+counter.getDogsCount());
