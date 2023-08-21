@@ -1,6 +1,5 @@
 package edu.hillel.Lesson4;
 
-import edu.hillel.Lesson3.Car.Car;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,4 +24,5 @@ public class Main {
         System.out.println("Dogs count="+counter.getDogsCount());
         System.out.println("Cats count="+counter.getCatsCount());
     }
+
 }
