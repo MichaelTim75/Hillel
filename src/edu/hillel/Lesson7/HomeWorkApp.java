@@ -27,11 +27,11 @@ public class HomeWorkApp {
 
         //5
         System.out.println("'ERE' is palindrome? "+isPalindrome("ERE"));
+        System.out.println("'ERE' is palindrome (v2)? "+isPalindromeV2("ERE"));
         System.out.println("'Allo' is palindrome? "+isPalindrome("Allo"));
 
         //6
         String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado" , "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", " pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
-        System.out.println(words[0]);
         Random random = new Random();
         String myWord = words[(int)Math.round((words.length-1) * random.nextDouble())];
 
@@ -51,6 +51,7 @@ public class HomeWorkApp {
 
     private static int findSymbolOccurrence(String s, char symbol){
         //correct name of function - right is "occurrence"
+        //this method doesn't create new Strings in memory
         int counter=0;
         int position=-1;
         while (true) {
@@ -63,6 +64,7 @@ public class HomeWorkApp {
 
     private static int findSymbolOccurrenceContains(String s, char symbol){
         //correct name of function - right is "occurrence"
+        //this method creates new Strings in memory
         int counter=0;
         while (s.contains(Character.toString(symbol))) {
             counter++;
@@ -81,7 +83,7 @@ public class HomeWorkApp {
         return stringBuilder.reverse().toString();
     }
     private static String stringReverseV2(String s){
-        //using charAt
+        //using charAt - but creates new strings in memory when concatenates
         String target="";
         int position=s.length()-1;
         while (position>=0){
@@ -93,6 +95,10 @@ public class HomeWorkApp {
 
     private static boolean isPalindrome(String s){
         return (s.equals(stringReverse(s)));
+    }
+    private static boolean isPalindromeV2(String s){
+        //this method using compare after intern
+        return (s.intern() == stringReverse(s).intern());
     }
 
     private static boolean guessWords(String myWord, String playerWord){
@@ -109,7 +115,7 @@ public class HomeWorkApp {
                 index++;
             }
             if (guessedString.length()<15){
-                guessedString=guessedString+"#".repeat(15-guessedString.length());
+                guessedString=guessedString.concat("#".repeat(15-guessedString.length()));
             }
             System.out.println("Your word is: "+guessedString+". Try again!");
         }
