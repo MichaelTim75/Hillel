@@ -26,7 +26,7 @@ public class ArrayValueCalculator {
                     totalSum+=Integer.parseInt(arr[i][j]);
                 }
                 catch (NumberFormatException e){
-                    throw new ArrayDataException("Data in row "+i+" and column "+j+" is \""+arr[i][j]+"\" and cannot be parsed to int!");
+                    throw new ArrayDataException("Data in row "+i+" and column "+j+" is \""+arr[i][j]+"\" and cannot be parsed to int!",e);
                 }
             }
         }
