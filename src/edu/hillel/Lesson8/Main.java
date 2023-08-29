@@ -14,17 +14,11 @@ public class Main {
             System.out.println("Result of total sum in dimension is "+arrayValueCalculator.doCalc(arr));
         } catch (ArraySizeException|ArrayDataException e) {
             System.out.println("Throwed exception "+e.getClass()+", message = "+e.getMessage());
-            StringWriter stringWriter=new StringWriter();
-            PrintWriter printWriter=new PrintWriter(stringWriter);
-            e.printStackTrace(printWriter);
-            System.out.println(stringWriter.toString());
+            printStackTrace(e);
         }
         catch (Exception e){
             System.out.println("Got an exception of "+e.getClass());
-            StringWriter stringWriter=new StringWriter();
-            PrintWriter printWriter=new PrintWriter(stringWriter);
-            e.printStackTrace(printWriter);
-            System.out.println(stringWriter.toString());
+            printStackTrace(e);
         }
 
         //demonstration of ArrayDataException
@@ -33,17 +27,11 @@ public class Main {
             System.out.println("Result of total sum in dimension is "+arrayValueCalculator.doCalc(arr2));
         } catch (ArraySizeException|ArrayDataException e) {
             System.out.println("Throwed exception "+e.getClass()+", message = "+e.getMessage());
-            StringWriter stringWriter=new StringWriter();
-            PrintWriter printWriter=new PrintWriter(stringWriter);
-            e.printStackTrace(printWriter);
-            System.out.println(stringWriter.toString());
+            printStackTrace(e);
         }
         catch (Exception e){
             System.out.println("Got an exception of "+e.getClass());
-            StringWriter stringWriter=new StringWriter();
-            PrintWriter printWriter=new PrintWriter(stringWriter);
-            e.printStackTrace(printWriter);
-            System.out.println(stringWriter.toString());
+            printStackTrace(e);
         }
 
         //correct version
@@ -52,17 +40,11 @@ public class Main {
             System.out.println("Result of total sum in dimension is "+arrayValueCalculator.doCalc(arr3));
         } catch (ArraySizeException|ArrayDataException e) {
             System.out.println("Throwed exception "+e.getClass()+", message = "+e.getMessage());
-            StringWriter stringWriter=new StringWriter();
-            PrintWriter printWriter=new PrintWriter(stringWriter);
-            e.printStackTrace(printWriter);
-            System.out.println(stringWriter.toString());
+            printStackTrace(e);
         }
         catch (Exception e){
             System.out.println("Got an exception of "+e.getClass());
-            StringWriter stringWriter=new StringWriter();
-            PrintWriter printWriter=new PrintWriter(stringWriter);
-            e.printStackTrace(printWriter);
-            System.out.println(stringWriter.toString());
+            printStackTrace(e);
         }
 
         //throw Exception
@@ -71,17 +53,11 @@ public class Main {
             System.out.println("Result of total sum in dimension is "+arrayValueCalculator.doCalc(arr4));
         } catch (ArraySizeException|ArrayDataException e) {
             System.out.println("Throwed exception "+e.getClass()+", message = "+e.getMessage());
-            StringWriter stringWriter=new StringWriter();
-            PrintWriter printWriter=new PrintWriter(stringWriter);
-            e.printStackTrace(printWriter);
-            System.out.println(stringWriter.toString());
+            printStackTrace(e);
         }
         catch (Exception e){
             System.out.println("Got an exception of "+e.getClass());
-            StringWriter stringWriter=new StringWriter();
-            PrintWriter printWriter=new PrintWriter(stringWriter);
-            e.printStackTrace(printWriter);
-            System.out.println(stringWriter.toString());
+            printStackTrace(e);
         }
 
         //throws division by zero
@@ -90,19 +66,19 @@ public class Main {
             System.out.println("Result of total sum in dimension is "+arrayValueCalculator.doCalc(arr5));
         } catch (ArraySizeException|ArrayDataException e) {
             System.out.println("Throwed exception "+e.getClass()+", message = "+e.getMessage());
-            StringWriter stringWriter=new StringWriter();
-            PrintWriter printWriter=new PrintWriter(stringWriter);
-            e.printStackTrace(printWriter);
-            System.out.println(stringWriter.toString());
+            printStackTrace(e);
         }
         catch (Exception e){
             System.out.println("Got an exception of "+e.getClass());
-            StringWriter stringWriter=new StringWriter();
-            PrintWriter printWriter=new PrintWriter(stringWriter);
-            e.printStackTrace(printWriter);
-            System.out.println(stringWriter.toString());
+            printStackTrace(e);
         }
 
     }
 
+    private static void printStackTrace(Exception e){
+        StringWriter stringWriter=new StringWriter();
+        PrintWriter printWriter=new PrintWriter(stringWriter);
+        e.printStackTrace(printWriter);
+        System.out.println(stringWriter.toString());
+    }
 }
