@@ -1,9 +1,11 @@
-package edu.hillel.Lesson9;
+package edu.hillel.Lesson9.Variant_1;
+
+import edu.hillel.Lesson9.Fruit;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Box <T extends Fruit> /*implements Comparable<Box<? extends Fruit>>*/{
+public class Box <T extends Fruit>{
     private final ArrayList<T> fruits;
     final private T fruitType;
 
@@ -63,7 +65,7 @@ public class Box <T extends Fruit> /*implements Comparable<Box<? extends Fruit>>
     }
     @Override
     public String toString() {
-
+        //override toString in order to print list of ids
         return "Box {" +
                 "fruits=" + fruits.stream().map(Fruit::getId).toList() +
                 '}';
@@ -86,13 +88,6 @@ public class Box <T extends Fruit> /*implements Comparable<Box<? extends Fruit>>
         return fruitType;
     }
 
-//    @Override
-//    public int compareTo(Box<? extends Fruit> o) {
-//        if (getFruitType().getClass()==o.getFruitType().getClass())
-//            return 0;
-//        else
-//            return -1;
-//    }
     private boolean compareFruitTypes(Box<? extends Fruit> o) {
         return (getFruitType().getClass()==o.getFruitType().getClass());
     }
