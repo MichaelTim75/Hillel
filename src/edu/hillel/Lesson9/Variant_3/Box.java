@@ -1,6 +1,6 @@
-package edu.hillel.Lesson9.Variant_3;
+package edu.hillel.lesson9.Variant_3;
 
-import edu.hillel.Lesson9.Fruit;
+import edu.hillel.lesson9.Fruit;
 
 import java.util.ArrayList;
 import java.util.Objects;
