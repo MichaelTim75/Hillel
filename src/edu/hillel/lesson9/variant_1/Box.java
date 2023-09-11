@@ -1,4 +1,4 @@
-package edu.hillel.lesson9.Variant_1;
+package edu.hillel.lesson9.variant_1;
 
 import edu.hillel.lesson9.Fruit;
 
