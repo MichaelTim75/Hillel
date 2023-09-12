@@ -31,16 +31,14 @@ public class Main {
         stringArray[2]="lemon";
         stringArray[3]="melon";
         stringArray[4]="avocado";
-        List<String> stringList = new ArrayList<>();
-        toList(stringArray,stringList);
+        List<String> stringList = toList(stringArray);
         System.out.println("New list is: "+stringList);
         //2 int
         Integer[] intArray = new Integer[3];
         intArray[0]=1;
         intArray[1]=2;
         intArray[2]=3;
-        List<Integer> intList = new ArrayList<>();
-        toList(intArray,intList);
+        List<Integer> intList = toList(intArray);
         System.out.println("New list is: "+intList);
 
         //3
@@ -54,8 +52,7 @@ public class Main {
         intList3.add(6);
         intList3.add(4);
         intList3.add(3);
-        List<Integer> uniqueList = new ArrayList<>();
-        findUnique(intList3,uniqueList);
+        List<Integer> uniqueList = findUnique(intList3);
         System.out.println("Unique list is: "+uniqueList);
 
         //4 - calcOccurrence
@@ -90,16 +87,18 @@ public class Main {
         return cnt;
     }
 
-    private static <T> void toList(T[] inArray,List<T> outList){
-        outList.addAll(Arrays.asList(inArray));
+    private static <T> List<T> toList(T[] inArray){
+        return new ArrayList<>(Arrays.asList(inArray));
     }
 
-    private static void findUnique(List<Integer> inList, List<Integer> uniqueList){
+    private static List<Integer> findUnique(List<Integer> inList){
+        List<Integer> uniqueList = new ArrayList<>();
         for (Integer i : inList) {
             if (!uniqueList.contains(i)){
                 uniqueList.add(i);
             }
         }
+        return uniqueList;
     }
 
     private static void calcOccurrence(List<String> inList){
