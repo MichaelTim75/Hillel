@@ -80,7 +80,7 @@ public class Main {
     private static int countOccurrence(List<String> strings, String stringToFind){
         int cnt=0;
         for (String string : strings) {
-            if (string.compareTo(stringToFind)==0){
+            if (string.equals(stringToFind)){
                 cnt++;
             }
         }
