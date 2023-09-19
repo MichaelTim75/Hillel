@@ -50,16 +50,35 @@ public class FileNavigator {
             fileDataTreeset.addAll(files);
         }
 
-        for (FileData file : fileDataTreeset) {
-            if(file.getSize()<=maxSize){
-                fileDataOutSet.add(file);
-            }
-            else {
-                break;
-            }
+        FileData[] fileDataArr = fileDataTreeset.toArray(new FileData[0]);
+        int index = binarySearchIndexMaxNotGreater(fileDataArr,maxSize);
+        if (index>=0){
+            fileDataOutSet.addAll(Arrays.asList(Arrays.copyOfRange(fileDataArr,0,index)));
         }
 
         return fileDataOutSet;
+    }
+    private int binarySearchIndexMaxNotGreater(FileData[] fileDataArr, int maxSize)
+    {
+        int low = 0;
+        int high = fileDataArr.length - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (fileDataArr[mid].getSize() <= maxSize){
+                if ((mid+1)==fileDataArr.length || fileDataArr[mid+1].getSize()>maxSize){
+                    return mid;
+                }
+                else{
+                    low = mid+1;
+                }
+            }
+            else{
+                high = mid - 1;
+            }
+        }
+
+        return -1;
     }
 /*
     public Set<FileData> filterBySize(int maxSize){
