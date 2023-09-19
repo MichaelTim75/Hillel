@@ -37,6 +37,32 @@ public class FileNavigator {
     }
 
     public Set<FileData> filterBySize(int maxSize){
+
+        Comparator<FileData> comparator = new Comparator<FileData>() {
+            @Override
+            public int compare(FileData o1, FileData o2) {
+                return Integer.compare(o1.getSize(),o2.getSize());
+            }
+        };
+        Set<FileData> fileDataTreeset = new TreeSet<>(comparator);
+        Set<FileData> fileDataOutSet = new TreeSet<>(comparator);
+        for (Set<FileData> files : paths.values()) {
+            fileDataTreeset.addAll(files);
+        }
+
+        for (FileData file : fileDataTreeset) {
+            if(file.getSize()<=maxSize){
+                fileDataOutSet.add(file);
+            }
+            else {
+                break;
+            }
+        }
+
+        return fileDataOutSet;
+    }
+/*
+    public Set<FileData> filterBySize(int maxSize){
         Set<FileData> fileDataSet = new HashSet<>();
         for (Set<FileData> files : paths.values()) {
             for (FileData file : files) {
@@ -47,6 +73,7 @@ public class FileNavigator {
         }
         return fileDataSet;
     }
+*/
 
     public void remove (String path){
         paths.remove(path);
