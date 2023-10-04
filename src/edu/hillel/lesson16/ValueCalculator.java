@@ -12,6 +12,7 @@ public class ValueCalculator {
     private float[] array;
     private static final int ARRAY_SIZE=10000000;
     private static final int HALF_ARRAY_SIZE=ARRAY_SIZE/2;
+    private static final int FIFTH_ARRAY_SIZE=ARRAY_SIZE/5;
 
     public long method (boolean needSynchro)  {
         long start = System.currentTimeMillis();
@@ -23,9 +24,15 @@ public class ValueCalculator {
         }
         float[] arr1=new float[HALF_ARRAY_SIZE];
         float[] arr2=new float[HALF_ARRAY_SIZE];
+        float[] arr3=new float[HALF_ARRAY_SIZE];
+        float[] arr4=new float[HALF_ARRAY_SIZE];
+        float[] arr5=new float[HALF_ARRAY_SIZE];
 
-        System.arraycopy(array,0,arr1,0,HALF_ARRAY_SIZE);
-        System.arraycopy(array,HALF_ARRAY_SIZE,arr2,0,HALF_ARRAY_SIZE);
+        System.arraycopy(array,0,arr1,0,FIFTH_ARRAY_SIZE);
+        System.arraycopy(array,FIFTH_ARRAY_SIZE,arr2,0,FIFTH_ARRAY_SIZE);
+        System.arraycopy(array,2*FIFTH_ARRAY_SIZE,arr3,0,FIFTH_ARRAY_SIZE);
+        System.arraycopy(array,3*FIFTH_ARRAY_SIZE,arr4,0,FIFTH_ARRAY_SIZE);
+        System.arraycopy(array,4*FIFTH_ARRAY_SIZE,arr5,0,FIFTH_ARRAY_SIZE);
 
         ReCalcArray reCalcArray1 = new ReCalcArray(arr1,needSynchro);
         Thread thread1= new Thread(reCalcArray1, "recalculation array 1");
@@ -34,6 +41,18 @@ public class ValueCalculator {
         ReCalcArray reCalcArray2 = new ReCalcArray(arr2,needSynchro);
         Thread thread2 = new Thread(reCalcArray2, "recalculation array 2");
         thread2.start();
+
+        ReCalcArray reCalcArray3 = new ReCalcArray(arr3,needSynchro);
+        Thread thread3 = new Thread(reCalcArray3, "recalculation array 3");
+        thread3.start();
+
+        ReCalcArray reCalcArray4 = new ReCalcArray(arr4,needSynchro);
+        Thread thread4 = new Thread(reCalcArray4, "recalculation array 4");
+        thread4.start();
+
+        ReCalcArray reCalcArray5 = new ReCalcArray(arr5,needSynchro);
+        Thread thread5 = new Thread(reCalcArray5, "recalculation array 5");
+        thread5.start();
 
         try {
             thread1.join();
@@ -46,9 +65,27 @@ public class ValueCalculator {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        try {
+            thread3.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            thread4.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            thread5.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
-        System.arraycopy(arr1,0,array,0,HALF_ARRAY_SIZE);
-        System.arraycopy(arr2,0,array,HALF_ARRAY_SIZE,HALF_ARRAY_SIZE);
+        System.arraycopy(arr1,0,array,0,FIFTH_ARRAY_SIZE);
+        System.arraycopy(arr2,0,array,FIFTH_ARRAY_SIZE,FIFTH_ARRAY_SIZE);
+        System.arraycopy(arr3,0,array,2*FIFTH_ARRAY_SIZE,FIFTH_ARRAY_SIZE);
+        System.arraycopy(arr4,0,array,3*FIFTH_ARRAY_SIZE,FIFTH_ARRAY_SIZE);
+        System.arraycopy(arr5,0,array,4*FIFTH_ARRAY_SIZE,FIFTH_ARRAY_SIZE);
 
 //        System.out.println("Execution time="+(System.currentTimeMillis()-start)+"ms");
         return System.currentTimeMillis()-start;
