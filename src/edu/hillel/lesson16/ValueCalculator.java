@@ -31,23 +31,23 @@ public class ValueCalculator {
 
         CyclicBarrier meetingPoint = new CyclicBarrier(6);
 
-        ReCalcArray reCalcArray1 = new ReCalcArray(arr1, needSynchro, meetingPoint, "1");
+        ReCalcArray reCalcArray1 = new ReCalcArray(arr1, needSynchro, meetingPoint);
         Thread thread1 = new Thread(reCalcArray1, "recalculation array 1");
         thread1.start();
 
-        ReCalcArray reCalcArray2 = new ReCalcArray(arr2, needSynchro, meetingPoint, "2");
+        ReCalcArray reCalcArray2 = new ReCalcArray(arr2, needSynchro, meetingPoint);
         Thread thread2 = new Thread(reCalcArray2, "recalculation array 2");
         thread2.start();
 
-        ReCalcArray reCalcArray3 = new ReCalcArray(arr3, needSynchro, meetingPoint, "3");
+        ReCalcArray reCalcArray3 = new ReCalcArray(arr3, needSynchro, meetingPoint);
         Thread thread3 = new Thread(reCalcArray3, "recalculation array 3");
         thread3.start();
 
-        ReCalcArray reCalcArray4 = new ReCalcArray(arr4, needSynchro, meetingPoint, "4");
+        ReCalcArray reCalcArray4 = new ReCalcArray(arr4, needSynchro, meetingPoint);
         Thread thread4 = new Thread(reCalcArray4, "recalculation array 4");
         thread4.start();
 
-        ReCalcArray reCalcArray5 = new ReCalcArray(arr5, needSynchro, meetingPoint, "5");
+        ReCalcArray reCalcArray5 = new ReCalcArray(arr5, needSynchro, meetingPoint);
         Thread thread5 = new Thread(reCalcArray5, "recalculation array 5");
         thread5.start();
 

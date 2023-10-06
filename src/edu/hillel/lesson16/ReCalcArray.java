@@ -7,13 +7,11 @@ public class ReCalcArray implements Runnable {
     private final float[] array;
     private final boolean needSynchro;
     private final CyclicBarrier barrier;
-    private final String name;
 
-    public ReCalcArray(float[] array, boolean needSynchro, CyclicBarrier barrier, String name) {
+    public ReCalcArray(float[] array, boolean needSynchro, CyclicBarrier barrier) {
         this.array = array;
         this.needSynchro = needSynchro;
         this.barrier = barrier;
-        this.name = name;
     }
 
     @Override
