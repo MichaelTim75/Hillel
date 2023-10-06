@@ -6,9 +6,10 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class PetrolStation {
-    private static int amount;
+    private static final AtomicInteger amount = new AtomicInteger(1000);
     private static final int THREAD_POOL_SIZE = 3;
     private static final int MIN_DELAY = 3000;
     private static final int MAX_DELAY = 10000;
@@ -21,15 +22,13 @@ public class PetrolStation {
 
         ExecutorService executorService = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 
-        amount = 1000;
-
         for (int i = 0; i < THREAD_POOL_SIZE; i++) {
-            int finalI=i;
-            executorService.submit( () -> {
-                while (getAmount()>MINIMAL_FUEL_AMOUNT) {
+            int finalI = i;
+            executorService.submit(() -> {
+                while (getAmount() >= MINIMAL_FUEL_AMOUNT) {
                     final int delay = ThreadLocalRandom.current().nextInt(MIN_DELAY, MAX_DELAY + 1);
                     final int fuelAmount = ThreadLocalRandom.current().nextInt(MIN_REFILL_AMOUNT, MAX_REFILL_AMOUNT + 1);
-                        System.out.println("Task "+finalI+" delay=" + delay + ", fuelAmount=" + fuelAmount + " start fuel to car");
+                    System.out.println("Task " + finalI + " delay=" + delay + ", fuelAmount=" + fuelAmount + " start fuel to car");
                     try {
                         Thread.sleep(delay);
                     } catch (InterruptedException e) {
@@ -45,12 +44,12 @@ public class PetrolStation {
         executorService.shutdown();
     }
 
-    public static synchronized int getAmount() {
-        return amount;
+    public static int getAmount() {
+        return amount.get();
     }
 
-    public static synchronized void doRefuel(int refillAmount) {
-        amount -= refillAmount;
+    public static void doRefuel(int refillAmount) {
+        amount.addAndGet(-1 * refillAmount);
     }
 
 }
