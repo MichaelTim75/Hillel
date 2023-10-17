@@ -1,0 +1,4 @@
+FILE= log
+LEVEL= DEBUG
+MAX-SIZE= 50000
+FORMAT= [%s][%s] Повідомлення: %s
