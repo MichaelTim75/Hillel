@@ -13,27 +13,25 @@ public class DataBaseConnection implements AutoCloseable {
     private final static String PASSWORD = "password";
     private final static String URL = "jdbc:postgresql://localhost:58001/test";
 
-    private final List<Connection> connections;
+    private final Connection connection;
 
     public DataBaseConnection() {
-        connections = new ArrayList<>();
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-    }
 
-    protected Connection getConnection() {
-        Connection connection;
         try {
             connection =DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-            connections.add(connection);
-            return connection;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
+    }
+
+    protected Connection getConnection() {
+        return connection;
     }
 
     protected void closeConnection(Connection connection) {
@@ -46,6 +44,6 @@ public class DataBaseConnection implements AutoCloseable {
 
     @Override
     public void close() throws Exception {
-        connections.forEach(this::closeConnection);
+        connection.close();
     }
 }
