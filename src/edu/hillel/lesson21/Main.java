@@ -25,7 +25,7 @@ public class Main {
         List<Lesson> lessons = lessonDAO.getLessons();
         lessons.forEach(System.out::println);
 
-        Lesson lesson = lessonDAO.getLessonById(1);
+        Lesson lesson = lessonDAO.getLessonById(2);
         System.out.println(lesson);
 
         lessonDAO.deleteLesson(1);
