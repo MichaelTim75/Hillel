@@ -1,13 +1,13 @@
 package edu.hillel.lesson23.factory;
 
-public class MetalFactory implements FactoryI {
+public class MetalFactory implements Factory {
     @Override
-    public BedI createBed() {
+    public Bed createBed() {
         return new MetalBed();
     }
 
     @Override
-    public TableI createTable() {
+    public Table createTable() {
         return new MetalTable();
     }
 }

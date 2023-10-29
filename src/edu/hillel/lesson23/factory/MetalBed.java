@@ -1,6 +1,6 @@
 package edu.hillel.lesson23.factory;
 
-public class MetalBed implements BedI {
+public class MetalBed implements Bed {
     @Override
     public String getMaterial() {
         return "I made from metal";

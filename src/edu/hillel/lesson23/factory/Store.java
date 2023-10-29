@@ -4,9 +4,9 @@ import lombok.Getter;
 
 @Getter
 public class Store {
-    public Store(FactoryI factory) {
+    public Store(Factory factory) {
         this.factory = factory;
     }
-    private final FactoryI factory;
+    private final Factory factory;
 
 }

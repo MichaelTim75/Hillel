@@ -1,13 +1,13 @@
 package edu.hillel.lesson23.factory;
 
-public class WoodFactory implements FactoryI {
+public class WoodFactory implements Factory {
     @Override
-    public BedI createBed() {
+    public Bed createBed() {
         return new WoodBed();
     }
 
     @Override
-    public TableI createTable() {
+    public Table createTable() {
         return new WoodTable();
     }
 }
