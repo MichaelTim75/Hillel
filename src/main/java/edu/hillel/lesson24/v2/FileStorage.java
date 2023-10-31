@@ -1,7 +1,5 @@
-package edu.hillel.lesson24;
+package edu.hillel.lesson24.v2;
 
-import edu.hillel.lesson19.variant1.FileLoggerConfiguration;
-import edu.hillel.lesson19.variant1.LoggingLevel;
 import lombok.SneakyThrows;
 
 import java.io.BufferedReader;
@@ -17,7 +15,7 @@ import java.util.List;
 
 public class FileStorage implements Storage {
 
-    private static final String FILE_PATH = "src/edu/hillel/lesson24";
+    private static final String FILE_PATH = "src/main/java/edu/hillel/lesson24/v2";
     private static final String FILE_NAME = "data.txt";
 
     private final File file;

@@ -1,4 +1,4 @@
-package edu.hillel.lesson24;
+package edu.hillel.lesson24.v1;
 
 import edu.hillel.lesson21.dao.HomeworkDAO;
 import lombok.SneakyThrows;

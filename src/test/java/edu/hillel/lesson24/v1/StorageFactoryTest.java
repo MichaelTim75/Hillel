@@ -1,7 +1,6 @@
-package edu.hillel.lesson24;
+package edu.hillel.lesson24.v1;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

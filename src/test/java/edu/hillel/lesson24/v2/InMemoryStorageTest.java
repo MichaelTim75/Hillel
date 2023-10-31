@@ -1,6 +1,9 @@
-package edu.hillel.lesson24;
+package edu.hillel.lesson24.v2;
 
 
+import edu.hillel.lesson24.v2.Storage;
+import edu.hillel.lesson24.v2.StorageFactory;
+import edu.hillel.lesson24.v2.StorageType;
 import org.junit.Before;
 import org.junit.Test;
 

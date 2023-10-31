@@ -1,7 +1,6 @@
 package edu.hillel.lesson21.dao;
 
 import edu.hillel.lesson21.dto.Homework;
-import edu.hillel.lesson21.dto.Lesson;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

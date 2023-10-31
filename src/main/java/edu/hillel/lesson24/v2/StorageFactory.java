@@ -1,11 +1,11 @@
-package edu.hillel.lesson24;
+package edu.hillel.lesson24.v2;
 
 public class StorageFactory {
 
     public Storage createStorage(StorageType type) {
         switch (type) {
             case DB -> {
-                return new DBStorage();
+                return new DBStorage(new DBConnectionProvider());
             }
             case FILE -> {
                 return new FileStorage();
@@ -14,7 +14,7 @@ public class StorageFactory {
                 return new InMemoryStorage();
             }
         }
-        throw new RuntimeException("Storage type {" + type + "}without implementation");
+        throw new RuntimeException("Storage type {" + type + "} without implementation");
     }
 
 

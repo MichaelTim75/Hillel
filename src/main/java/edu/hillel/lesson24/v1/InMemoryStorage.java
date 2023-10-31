@@ -1,4 +1,4 @@
-package edu.hillel.lesson24;
+package edu.hillel.lesson24.v1;
 
 import java.util.ArrayList;
 import java.util.List;

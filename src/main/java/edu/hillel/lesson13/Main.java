@@ -1,7 +1,5 @@
 package edu.hillel.lesson13;
 
-import java.util.Collections;
-
 public class Main {
     public static void main(String[] args) {
         FileNavigator fileNavigator = new FileNavigator();

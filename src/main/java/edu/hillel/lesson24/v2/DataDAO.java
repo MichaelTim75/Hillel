@@ -1,6 +1,5 @@
-package edu.hillel.lesson24;
+package edu.hillel.lesson24.v2;
 
-import edu.hillel.lesson21.dto.Homework;
 import lombok.SneakyThrows;
 
 import java.sql.Connection;

@@ -1,4 +1,4 @@
-package edu.hillel.lesson24;
+package edu.hillel.lesson24.v1;
 
 
 import org.junit.Before;
@@ -9,14 +9,14 @@ import java.util.List;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
-public class DBStorageTest {
+public class FileStorageTest {
 
     private final StorageFactory storageFactory = new StorageFactory();
     private Storage storage;
 
     @Before
     public void setUp() {
-        storage = storageFactory.createStorage(StorageType.DB);
+        storage = storageFactory.createStorage(StorageType.FILE);
         storage.clearData();
     }
 
