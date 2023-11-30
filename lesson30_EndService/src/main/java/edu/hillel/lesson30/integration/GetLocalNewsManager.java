@@ -29,7 +29,7 @@ public class GetLocalNewsManager {
     @Value("${local.api.news.host:http://localhost}")
     private String host;
 
-    @Value("${server.port:8181}")
+    @Value("${local.api.news.port:8181}")
     private int port;
 
     public List<String> getNews(){
