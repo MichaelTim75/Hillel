@@ -1,0 +1,41 @@
+Log of program:
+Student get - Student(id=2, name=student 2, email=student 2 email)
+Student get - group - Group(id=2, name=group 2)
+Student get - courses - [Course(id=1, name=course 1), Course(id=2, name=course 2)]
+Student 2 after change - Student(id=2, name=student 2, email=student 2 new email)
+List of students
+Student(id=1, name=student 1, email=student 1 email)
+Student(id=2, name=student 2, email=student 2 new email)
+List of students after delete student 2
+Student(id=1, name=student 1, email=student 1 email)
+------------------------------------
+Data from tables after executing:
+1) select * from hillel.groups;
++--+-------+
+|id|name   |
++--+-------+
+|1 |group 1|
+|2 |group 2|
++--+-------+
+
+2) select * from hillel.courses;
++--+--------+
+|id|name    |
++--+--------+
+|1 |course 1|
+|2 |course 2|
++--+--------+
+
+3) select * from hillel.students;
++--+---------+---------------+--------+
+|id|name     |email          |group_id|
++--+---------+---------------+--------+
+|1 |student 1|student 1 email|1       |
++--+---------+---------------+--------+
+
+4) select * from hillel.students_courses;
++----------+---------+
+|student_id|course_id|
++----------+---------+
+|1         |2        |
++----------+---------+
