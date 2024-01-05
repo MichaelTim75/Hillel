@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: SpringMvc
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:58001/postgres
+    username: admin
+    password: admin
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        enable_lazy_load_no_trans: true
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /api-docs-swagger-ui.html
+    operations-sorter: method
+
+logging:
+  level:
+    org:
+      springframework: info
+      hibernate: error
+  file:
+    name: application.log
